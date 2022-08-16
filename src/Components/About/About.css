@@ -1,0 +1,13 @@
+.breadcrumb-item+.breadcrumb-item::before{
+    color:#453227 !important
+}
+.about-logo{
+    width: 100% !important;
+    height:  500px !important;
+}
+.story{
+    text-decoration: underline;
+    text-decoration-color:#ab7a5f; 
+    text-underline-offset: 6px;
+    text-decoration-thickness:3px ;
+}

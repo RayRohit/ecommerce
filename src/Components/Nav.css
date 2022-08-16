@@ -5,5 +5,10 @@
   font-family: "Roboto", sans-serif !important;
   font-size: 20px !important;
   text-transform: capitalize !important;
-  color:black !important
+  color: black !important;
+}
+.navbar-link:hover {
+  text-decoration: underline;
+  text-decoration-color: #453227 !important;
+  text-underline-offset: 10px;
 }
