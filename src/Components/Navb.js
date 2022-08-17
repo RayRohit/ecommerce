@@ -2,13 +2,12 @@ import { GroupAdd, ShoppingCart } from '@mui/icons-material'
 import { Button } from '@mui/material'
 import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../images/comfylogo.svg'
-import About from './About/About'
-import Home from './Home/Home'
 import './Nav.css'
 
 export default function Navb() {
+    const navigate = useNavigate()
     return (
         <>
             <Navbar expand='lg'>
@@ -25,10 +24,10 @@ export default function Navb() {
                         </Nav>
                         <Nav>
                             <Nav.Link>
-                                <Button variant="text" className='nav-btn' endIcon={<ShoppingCart />} >Text</Button>
+                                <Button variant="text" className='nav-btn' endIcon={<ShoppingCart/>} >Text</Button>
                             </Nav.Link>
                             <Nav.Link>
-                                <Button variant="text" className='nav-btn' endIcon={<GroupAdd />} >Login</Button>
+                                <Button variant="text" className='nav-btn' endIcon={<GroupAdd />} onClick={()=>navigate('/login')}>Login</Button>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
