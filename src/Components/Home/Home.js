@@ -68,8 +68,8 @@ const navigate = useNavigate()
                             <Button className='btn border-0' style={{backgroundColor:'#ab7a5f'}} onClick={()=>navigate('/products')}>SHOP NOW</Button>
                         </div>
                     </div>
-                    <div className='col-sm-6 py-3 d-none d-lg-block d-xl-block d-xxl-block d-md-block img-col'>
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className='col-sm-6 py-3  img-col'>
+                        <div style={{ display: 'flex', justifyContent: 'center' }} className='d-none d-lg-block d-xl-block d-xxl-block d-md-block'>
                             <img src={homepic3} alt='home page' width='100%' />
                         </div>
                     </div>
@@ -81,8 +81,8 @@ const navigate = useNavigate()
                     {
                         featuredData.map((item) => {
                             return (
-                                <div className='col-sm-4 col-md-6 col-lg-4 my-1 pt-3'>
-                                    <div className='card border-0 mx-auto' key={item.id} style={{ width: '18rem' }}>
+                                <div className='col-sm-4 col-md-6 col-lg-4 my-1 pt-3' key={item.id}>
+                                    <div className='card border-0 mx-auto'  style={{ width: '18rem' }}>
                                         <div>
                                             <img src={item.image} alt={item.title} className='img-fluid rounded' width='100%' height='225px !important' />
                                         </div>
@@ -112,8 +112,8 @@ const navigate = useNavigate()
                         {
                             cardData.map((data) => {
                                 return (
-                                    <div className='col-md-6 col-lg-4 pt-5'>
-                                        <div className='card border-0 p-4' key={data.id} style={{ backgroundColor: '#c5a491' }}>
+                                    <div className='col-md-6 col-lg-4 pt-5' key={data.id}>
+                                        <div className='card border-0 p-4' style={{ backgroundColor: '#c5a491' }}>
                                             <div className='text-center'>
                                                 {data.icon}
                                             </div>
@@ -136,7 +136,7 @@ const navigate = useNavigate()
                         </div>
                         <div className='col-sm-6'>
                             <div className="input-group pt-4">
-                                <input type="text" class="form-control" placeholder="Enter Email" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                                <input type="text" className="form-control" placeholder="Enter Email" aria-label="Recipient's username" aria-describedby="button-addon2" />
                                 <button className="btn" style={{ backgroundColor: '#ab7a5f', color: 'white' }} type="button" id="button-addon2">Button</button>
                             </div>
                         </div>

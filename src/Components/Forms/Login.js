@@ -2,26 +2,38 @@ import { Google, Twitter } from '@mui/icons-material'
 import { Button } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { AuthSlice, LogCheck } from '../features/AuthSlice'
 import './Login.css'
 
 export default function Login() {
+    const {loggedUser,isLoggedIn,error} = useSelector((state)=>state.auth)
     const [person, setPerson] = useState({
         email: '',
         pass: ''
     })
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
     const handleChange = (e) => {
         let name = e.target.name
         let value = e.target.value
         setPerson({ ...person, [name]: value })
     }
- 
-
-    console.log(person)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        dispatch(LogCheck(person))
+    }
+    useEffect(()=>{
+        if(loggedUser.length !== 0){
+            if(isLoggedIn) navigate('/',{replace:true})
+        }
+    },[isLoggedIn])
     return (
         <>
             <div className='container-fluid' style={{ height: '91vh', background: 'radial-gradient(#40404b, #111118) rgba(34,34,40,0.94)' }}>
                 <div className='d-flex justify-content-center align-items-center h-100'>
-                    <form className='border-0 shadow bg-light p-4 rounded w-25' >
+                    <form className='border-0 shadow bg-light p-4 rounded w-25' onSubmit={handleSubmit} >
                         <h5 className='text-center fw-bolder'>Authentication</h5>
                         <div className='py-2'>
                             <label htmlFor='email' className='fw-bold py-2'>Email</label>

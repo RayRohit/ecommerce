@@ -1,0 +1,7 @@
+.cart-img {
+  width: 500px;
+  display: block;
+  border-radius: 0.25rem;
+  object-fit: cover;
+  height: 500px;
+}

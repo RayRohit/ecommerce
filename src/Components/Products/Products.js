@@ -53,6 +53,11 @@ export default function Products() {
                             <div className='row'>
                                 {
                                     data.map((item) => {
+                                        let number = item.price
+                                        number = number.toString().split('')
+                                        number.splice(number.length - 2, 0, '.')
+                                        number = parseFloat(number.join(''))
+
                                         if (category === 'all')
                                             return (
                                                 <div className='col-lg-4 col-md-6'>
@@ -60,12 +65,12 @@ export default function Products() {
                                                         <div className='img-container'>
                                                             <img src={item.image} alt={item.name} width='100%' className='img-fluid product-img' />
                                                             <div className='middle'>
-                                                                <div className='text'><ImSearch /></div>
+                                                                <div className='text' onClick={() => { navigate(`/products/${item.id}`) }}><ImSearch /></div>
                                                             </div>
                                                         </div>
                                                         <div className='d-flex justify-content-between'>
                                                             <h6 className='text-capitalize py-2 fw-normal'>{item.name}</h6>
-                                                            <h6 className='fw-normal py-2'>$ {item.price}</h6>
+                                                            <h6 className='fw-normal py-2' style={{ color: '#ab7a5f' }}>$ {number}</h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -78,12 +83,12 @@ export default function Products() {
                                                             <div className='img-container'>
                                                                 <img src={item.image} alt={item.name} width='100%' className='img-fluid product-img' />
                                                                 <div className='middle'>
-                                                                    <div className='text'><ImSearch /></div>
+                                                                    <div className='text' onClick={() => { navigate(`/products/${item.id}`) }}><ImSearch /></div>
                                                                 </div>
                                                             </div>
                                                             <div className='d-flex justify-content-between'>
                                                                 <h6 className='text-capitalize py-2 fw-normal'>{item.name}</h6>
-                                                                <h6 className='fw-normal py-2'>$ {item.price}</h6>
+                                                                <h6 className='fw-normal py-2' style={{ color: '#ab7a5f' }}>$ {number}</h6>
                                                             </div>
                                                         </div>
                                                     </div>
